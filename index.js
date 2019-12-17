@@ -63,12 +63,19 @@ makePersonObject(5, 'Leia', 'leia@leia.com');
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
+
+const person = {
+  id: 1,
+  name: 'Luke',
+  email: 'luke@luke.com'
+};
+
 function getName(id, name, email) {
-  const hey = {id: 1, name: 'Leia', email: 'leia@leia.com'};
-  return('Hello, my name is ' + hey.name);
+
+  return('Hello, my name is ' + person.name);
 }
 
-getName(id: 1, name: 'Leia', email: 'leia@leia.com');
+getName(person);
 
 /**
  * ### Challenge `makeSmartPerson`
@@ -83,9 +90,16 @@ getName(id: 1, name: 'Leia', email: 'leia@leia.com');
  *         and returns a string like `Hello, my name is {name}`.
  *         where `{name}` is the name passed into `makeSmartPerson`.
 */
-function makeSmartPerson(/* code here */) {
-  /* code here */
+function makeSmartPerson(name) {
+  const smartPerson = {
+    name: 'Sam',
+    sum: function sum(a,b){return(a+b);},
+    speak: function speak(name){return('Hello, my name is ' + smartPerson.name);}
+  };
+  return(smartPerson);
 }
+
+makeSmartPerson('K');
 
 
 
