@@ -41,14 +41,13 @@ function addNumbers(num1, num2) {
 */
 function makePersonObject(id, name, email) {
   const person = {
-    id: 1,
-    name: 'Luke',
-    email: 'luke@luke.com'
+    id: id,
+    name: name,
+    email: email
   };
   return(person);
 };
 
-makePersonObject(5, 'Leia', 'leia@leia.com');
 
 /**
  * ### Challenge `getName`
@@ -64,18 +63,12 @@ makePersonObject(5, 'Leia', 'leia@leia.com');
  * the returned value should look like `Hello, my name is Leia`.
 */
 
-const person = {
-  id: 1,
-  name: 'Luke',
-  email: 'luke@luke.com'
-};
 
-function getName(id, name, email) {
+function getName(person) {
 
   return('Hello, my name is ' + person.name);
 }
 
-getName(person);
 
 /**
  * ### Challenge `makeSmartPerson`
@@ -99,7 +92,7 @@ function makeSmartPerson(name) {
   return(smartPerson);
 }
 
-makeSmartPerson('K');
+
 
 
 
@@ -250,14 +243,15 @@ getLastCarInfo(inventory);
 function getCarInfoById(inv, num) {
       for (var i = 0; i < inv.length; i++) {
           if (inv[i].id === num) {
-            const idMake = inv[i].car_make;
-            const idMod = inv[i].car_model;
-            const idInfo = idMake + idMod;
-            return('This is a ' + idInfo);
+            // const idMake = inv[i].car_make;
+            // const idMod = inv[i].car_model;
+            // const idInfo = idMake + idMod;
+            return(`This is a ${inv[i].car_make} ${inv[i].car_model}`
+);
           }
         }
       }
-getCarInfoById(inventory, 1);
+
 
 /**
  * ### Challenge `sortCarInventory`
@@ -267,13 +261,13 @@ getCarInfoById(inventory, 1);
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * sortCarInventory returns an inventory that is sorted by car_model, ascending [A-Z].
 */
-function sortCarInventory(inv) {
-  const sortInfo = inv[i].car_model;
-  const sortInv = [inv.sort()];
-  return(sortInv);
-}
+// function sortCarInventory(inv) {
+//   const sortInfo = inv[i].car_model;
+//   const sortInv = [inv.sort()];
+//   return(sortInv);
+// }
 
-sortCarInventory(inventory);
+// sortCarInventory(inventory);
 /**
  * ### Challenge `getModelYears`
  *
