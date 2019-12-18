@@ -46,7 +46,7 @@ function makePersonObject(id, name, email) {
     email: email
   };
   return(person);
-};
+}
 
 
 /**
@@ -65,7 +65,6 @@ function makePersonObject(id, name, email) {
 
 
 function getName(person) {
-
   return('Hello, my name is ' + person.name);
 }
 
@@ -202,13 +201,13 @@ function get3rdCar(inventory) {
 //  * it will return `This is a Lincoln Navigator`.
 // */
 function getCarInfoByIndex(inv, i) {
-  const make = (inv[i].car_make);
-  const model = (inv[i].car_model);
-  const makeModel = make + model;
-  return('This is a ' + makeModel);
+  // const make = (inv[i].car_make);
+  // const model = (inv[i].car_model);
+  // const makeModel = make + model;
+  return(`'This is a ' + ${inv[i].car_make}, ${inv[i].car_model}`);
 
 }
-getCarInfoByIndex(inventory, 3);
+
 /**
  * ### Challenge `getLastCarInfo`
  *
@@ -226,7 +225,7 @@ function getLastCarInfo(inv) {
   const lastInfo = lastMake + lastMod;
   return('This is a ' + lastInfo);
 }
-getLastCarInfo(inventory);
+
 /**
  * ### Challenge `getCarInfoById`
  *
@@ -256,16 +255,14 @@ function getCarInfoById(inv, num) {
 /**
  * ### Challenge `sortCarInventory`
  *
- * @instructions
+ * @instructions //STRETCH
  * sortCarInventory takes a single argument:
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * sortCarInventory returns an inventory that is sorted by car_model, ascending [A-Z].
 */
-// function sortCarInventory(inv) {
-//   const sortInfo = inv[i].car_model;
-//   const sortInv = [inv.sort()];
-//   return(sortInv);
-// }
+function sortCarInventory(inv) {
+
+}
 
 // sortCarInventory(inventory);
 /**
@@ -278,9 +275,11 @@ function getCarInfoById(inv, num) {
  * getModelYears returns an array containing all the 'car_year's in the inventory.
 */
 function getModelYears(inv) {
-  const carYear = [];
-
-}
+  const modelYears =  [];
+  for (let i= 0; i <inv.length; i++){
+  modelYears.push(inv[i].car_year)};
+        return(modelYears);
+      }
 
 /**
  * ### Challenge `getOlderCars`
@@ -294,8 +293,14 @@ function getModelYears(inv) {
  * with a `car_year` which is at most the given desired max year,
  * in the same order as they appear in the original inventory.
 */
-function getOlderCars(/* code here */) {
-  /* code here */
+function getOlderCars(inv, max) {
+  let carList = [];
+  for (let i= 0; i < inv.length; i++) {
+    if (inv[i].car_year <= max) {
+      carList.push(inv[i]);
+    };
+  };
+  return carList;
 }
 
 /**
@@ -309,9 +314,16 @@ function getOlderCars(/* code here */) {
  * made by either `Audi` or `Mercedes-Benz` or `Volkswagen` or `BMW`,
  * in the same order as they appear in the original inventory.
 */
-function getGermanCars(/* code here */) {
-  /* code here */
-}
+function getGermanCars(inv) {
+    let germanCars = [];
+    for (let i= 0; i < inv.length; i++) {
+      if (inv[i].car_make === 'Audi' || inv[i].car_make === 'Mercedes-Benz' || inv[i].car_make === 'Volkswagen' || inv[i].car_make === 'BMW') {
+        germanCars.push(inv[i]);
+      };
+    };
+    return germanCars;
+  }
+
 
 /**
  * ### Challenge refactor to arrow functions
@@ -319,21 +331,21 @@ function getGermanCars(/* code here */) {
  * @instructions
  * Create arrow function versions of the following commented-out functions:
  *
- * const sum = function (a, b) {
- *   return a + b
- * }
+ * const sum =  (a, b) =>
+ *   return a + b;
  *
- * const addFive = function(num) {
-*    return num + 5
- * }
  *
- * const argTimesTwo = function (num) {
- *   return num * 2
- * }
+ * const addFive = (num) =>
+*    return num + 5;
+ *
+ *
+ * const argTimesTwo = (num) =>
+ *   return num * 2;
+
 */
-const sum = null; // code here!
-const addFive = null; // code here!
-const argTimesTwo = null; // code here!
+const sum = (a, b) => {return a+b;}
+const addFive = (x) => {return x + 5;}
+const argTimesTwo = (x) => {x *2;}
 
 /**
  * ### Challenge `carMaker`
@@ -348,8 +360,12 @@ const argTimesTwo = null; // code here!
  *         (1) causes the odometer in the object to be increased by the distance,
  *         (2) returns the updated value of the `odometer`.
 */
-function carMaker(/* code here */) {
-  /* code here */
+function carMaker(odo) {
+  function drive(dist){
+     odo + dist;
+    };
+    drive();
+  return odo;
 }
 
 /// ////// END OF CHALLENGE /////////
